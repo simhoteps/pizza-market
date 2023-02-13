@@ -1,0 +1,26 @@
+@import "core/init/theme/main_texts.scss";
+
+.footer{
+   position: static;
+    bottom: 0;
+   /*  
+    left: 0;
+    right: 0; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+    height: 48px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+
+.footer-text{
+    font-family: $fontStyle1;
+    font-weight: 500 ;
+    font-size: $overline_fontSize;
+    line-height: 20px;
+  
+    }
+    

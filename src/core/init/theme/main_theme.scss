@@ -1,0 +1,73 @@
+
+/*
+ * Theme definitions
+ */
+
+ $themes: (
+  light: (
+    primary_main: #A9A9A9,
+    primary_light: #424242,
+    primary_dark: #F7F7F7,
+    secondary_main: #A0B3C6,
+    secondary_light: #788897,
+    background_default: #000000,
+    background_paper: #424242,
+    error1_main: #F9D4D1,
+    warning_main: #FBC89F,
+    info_main: #89ADCF,
+    text_primary: #252525,
+    text_secondary: #F7F7F7,
+    text_disabled: #A9A9A9,
+    success_main: #6BB27B,
+    extraText_tertiary: #CDD3E1,
+    extraText_constant: #424242,
+    extraText_quarternary: #798897,
+    header_main: #2C2D29,
+    header_content: #DFDCDA,
+    home_main:#EEEBE4,
+  ),
+  dark: (
+    primary_main: #A9A9A9,
+    primary_light: #424242,
+    primary_dark: #F7F7F7,
+    secondary_main: #A0B3C6,
+    secondary_light: #788897,
+    background_default: #000000,
+    background_paper: #424242,
+    error1_main: #F9D4D1,
+    warning_main: #FBC89F,
+    info_main: #89ADCF,
+    text_primary: #252525,
+    text_secondary: #F7F7F7,
+    text_disabled: #A9A9A9,
+    success_main: #6BB27B,
+    extraText_tertiary: #CDD3E1,
+    extraText_constant: #424242,
+    extraText_quarternary: #798897,
+    header_main: #2C2D29,
+    header_content: #DFDCDA,
+    home_main:#EEEBE4
+  ),
+);
+
+/*
+ * Implementation of themes
+ */
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    &.#{$theme},
+    .#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

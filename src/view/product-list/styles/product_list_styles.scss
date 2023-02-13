@@ -1,0 +1,83 @@
+@import "core/init/theme/main_texts.scss";
+
+.productListContainer{
+    padding:40px 80px ;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
+    gap: 56px;
+}
+.productListContent{
+    font-family: $fontStyle1;
+    display: flex;
+    flex-direction: row;
+    gap: 56px;
+    align-items: center;
+    justify-content: center;
+ 
+   
+}
+.descTextContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.descTitlePizzaButton{
+    width: 180px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border:none;
+    color: #525252;
+    border-radius: 12px ;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    
+    &:hover{
+      
+      transition: all .2s ease-in-out;
+      transform: scale(1.1);
+      background-color:  #c1c1c140;
+      box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    }
+
+}
+
+.descSicePizzaButton{
+    border: none;
+    background-color: transparent;
+    padding: 8px;
+    cursor: pointer;
+
+
+}
+.descTitlePizzaImg{
+width: 50%;
+
+}
+.descTextsPizza{
+   font-size: 16px;
+}
+
+.productListBackBotton{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+
+    &:hover{
+        transition: all .2s ease-in-out;
+        transform: scale(1.1);
+           }
+}
