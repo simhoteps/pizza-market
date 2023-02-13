@@ -1,9 +1,7 @@
 import { IconMinus, IconPlus, IconShopAdd } from "core/component/icon/icon";
 import React, { useState } from "react";
 import "../styles/card_styles.scss";
-import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-//import { decrement, increment } from "store/reducer/basket_slice";
 
 const BasketButton = ({
   id,
@@ -16,10 +14,6 @@ const BasketButton = ({
   isCard: string;
   sizes: number[];
 }) => {
-  const dispatch = useDispatch();
-  const sizeOfPizza = [26, 30, 40];
-
-  const [basketNumber, setBasketNumber] = useState<number>(0);
   const [size, setSize] = useState<number>(sizes[0]);
   return (
     <div
@@ -94,45 +88,6 @@ const BasketButton = ({
           );
         })}
       </div>
-      {/*      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          gap: "8px",
-        }}
-      >
-        <button
-          className="card_button"
-          onClick={() => {
-            setSize(20);
-          }}
-        >
-          <p
-            style={{
-              fontWeight: size === 20 ? 700 : 500,
-            }}
-            className="card-desc"
-          >
-            20
-          </p>
-        </button>
-
-        <p className="card-desc">|</p>
-        <button
-          className="card_button"
-          onClick={() => {
-            setSize(30);
-          }}
-        >
-          <p
-            style={{ fontWeight: size === 30 ? 700 : 500 }}
-            className="card-desc"
-          >
-            30
-          </p>
-        </button>
-      </div> */}
     </div>
   );
 };
