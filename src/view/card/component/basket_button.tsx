@@ -2,13 +2,6 @@ import { IconMinus, IconPlus, IconShopAdd } from "core/component/icon/icon";
 import React, { useState } from "react";
 import "../styles/card_styles.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "store2/store";
-import {
-  increaseAmount,
-  minusItem,
-  removeItem,
-} from "store2/reducer/basket_slice";
-import notify from "core/component/notify/notify";
 import { toast } from "react-toastify";
 //import { decrement, increment } from "store/reducer/basket_slice";
 
@@ -25,18 +18,6 @@ const BasketButton = ({
 }) => {
   const dispatch = useDispatch();
   const sizeOfPizza = [26, 30, 40];
-
-  const onClickMinus = () => {
-    dispatch(minusItem(id));
-  };
-
-  const onClickPlus = () => {
-    dispatch(increaseAmount({ id }));
-  };
-
-  const onClickRemove = () => {
-    dispatch(removeItem(id));
-  };
 
   const [basketNumber, setBasketNumber] = useState<number>(0);
   const [size, setSize] = useState<number>(sizes[0]);
@@ -57,9 +38,7 @@ const BasketButton = ({
           <button
             className="card_button"
             onClick={() => {
-              notify("success", "add basket");
               toast.success("add basket");
-              onClickPlus();
             }}
           >
             <IconShopAdd />
@@ -74,22 +53,12 @@ const BasketButton = ({
               gap: "16px",
             }}
           >
-            <button
-              className="card_button"
-              onClick={() => {
-                onClickMinus();
-              }}
-            >
+            <button className="card_button" onClick={() => {}}>
               <IconMinus />
             </button>
 
             <p className="card-desc">{count}</p>
-            <button
-              className="card_button"
-              onClick={() => {
-                onClickPlus();
-              }}
-            >
+            <button className="card_button" onClick={() => {}}>
               <IconPlus />
             </button>
           </div>
