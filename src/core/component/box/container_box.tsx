@@ -7,9 +7,11 @@ const ContainerBox = ({ child }: { child?: any }) => {
   const windowWidth = size?.width!;
   return (
     <div
+      /*  className="globalContainerBox" */
       style={{
         height: `${windowHeight}px`,
         minHeight: `${windowHeight}px`,
+        maxHeight: `${windowHeight}px`,
       }}
     >
       {child}

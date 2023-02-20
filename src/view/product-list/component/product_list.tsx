@@ -25,7 +25,7 @@ const ProductList = () => {
   });
 
   return (
-    <div>
+    <>
       {pizzaInfo ? (
         <ContainerBox
           child={
@@ -36,27 +36,14 @@ const ProductList = () => {
                 }}
                 className="productListBackBotton"
               >
-                {" "}
                 <IconBack /> back
               </button>
               <div className="productListContent">
                 <img className="descTitlePizzaImg" src={pizzaInfo?.imageUrl} />
                 <div className="descTextContainer">
                   <h1 className="descTitlePizza">{pizzaInfo?.title}</h1>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                      width: "100%",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: "24px",
-                        fontWeight: 700,
-                      }}
-                    >
+                  <div className="rowContent">
+                    <p className="descPriceText">
                       Price : {pizzaInfo?.price} $
                     </p>
                     <Rating
@@ -66,26 +53,11 @@ const ProductList = () => {
                     />
                   </div>
 
-                  <p> {pizzaInfo?.description}</p>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                      width: "100%",
-                    }}
-                  >
+                  <div className="rowContent">
                     <button className="descTitlePizzaButton" onClick={() => {}}>
                       ADD BASKET
                     </button>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                      }}
-                    >
+                    <div style={{ maxWidth: "120px" }} className="rowContent">
                       <p>Sizes:</p>
                       {pizzaInfo?.sizes.map((item) => {
                         return (
@@ -97,6 +69,7 @@ const ProductList = () => {
                             }}
                           >
                             <p
+                              className="descSicePizzaButtonText"
                               style={{
                                 fontWeight: size === item ? 700 : 500,
                                 fontSize: size === item ? 20 : 18,
@@ -109,6 +82,8 @@ const ProductList = () => {
                       })}
                     </div>
                   </div>
+
+                  <p className="descDescription"> {pizzaInfo?.description}</p>
                 </div>
               </div>
             </div>
@@ -117,7 +92,7 @@ const ProductList = () => {
       ) : (
         <Loader />
       )}
-    </div>
+    </>
   );
 };
 

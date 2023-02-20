@@ -39,12 +39,7 @@ const Card = ({ pizza, isCard }: { pizza: PizzaItem; isCard: string }) => {
           <p className="card-desc">{pizza.price} $</p>
           <Rating size={16} readonly={true} initialValue={pizza.rating} />
         </div>
-        <BasketButton
-          isCard={isCard}
-          count={pizza.count}
-          id={pizza.id}
-          sizes={pizza.sizes}
-        />
+        <BasketButton pizza={pizza} isCard={isCard} />
       </div>
     </div>
   );

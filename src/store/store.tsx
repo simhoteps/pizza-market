@@ -1,9 +1,11 @@
 import { AnyAction, configureStore } from "@reduxjs/toolkit";
+import basketSlice from "./action/basket_action";
 import pizzaSlice from "./reducer/pizza_slice";
 
 export const store = configureStore({
   reducer: {
     pizzaSlice: pizzaSlice,
+    basketSlice: basketSlice,
   },
 });
 

@@ -1,0 +1,16 @@
+.globalContainerBox{
+    overflow-y: auto;
+   
+
+  &::-webkit-scrollbar {
+    width: 4,
+  };
+  &::-webkit-scrollbar-thumb{
+    border-radius: 10;
+    background-color: t#525252
+  };
+  &::-webkit-scrollbar-track {
+    border-radius: 10;
+    background-color: transparent
+  };
+}
