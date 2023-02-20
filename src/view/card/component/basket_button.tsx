@@ -2,19 +2,24 @@ import { IconMinus, IconPlus, IconShopAdd } from "core/component/icon/icon";
 import React, { useState } from "react";
 import "../styles/card_styles.scss";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "store/store";
+import { basketSlice } from "store/action/basket_action";
+import { PizzaItem } from "model/model";
 
 const BasketButton = ({
-  id,
-  count,
   isCard,
-  sizes,
+  pizza,
 }: {
-  id: string;
-  count: number;
+  pizza: PizzaItem;
   isCard: string;
-  sizes: number[];
 }) => {
-  const [size, setSize] = useState<number>(sizes[0]);
+  const { id, selectPizza } = useSelector(
+    (state: RootState) => state.basketSlice
+  );
+  const dispatch = useDispatch();
+
+  const [size, setSize] = useState<number>(pizza.sizes[0]);
   return (
     <div
       style={{
@@ -32,7 +37,9 @@ const BasketButton = ({
           <button
             className="card_button"
             onClick={() => {
+              dispatch(basketSlice.actions.increment());
               toast.success("add basket");
+              console.log("first");
             }}
           >
             <IconShopAdd />
@@ -51,7 +58,7 @@ const BasketButton = ({
               <IconMinus />
             </button>
 
-            <p className="card-desc">{count}</p>
+            <p className="card-desc">{pizza.count}</p>
             <button className="card_button" onClick={() => {}}>
               <IconPlus />
             </button>
@@ -66,7 +73,7 @@ const BasketButton = ({
           gap: "8px",
         }}
       >
-        {sizes.map((item) => {
+        {pizza.sizes.map((item) => {
           return (
             <button
               key={item}
