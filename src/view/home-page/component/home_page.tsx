@@ -24,10 +24,6 @@ const HomePage = () => {
           }}
           className="homeContent"
         >
-          {/*       <img
-            className="homeImg"
-            src={`${window.location.origin}/pizza_home.png`}
-          /> */}
           <div
             style={{
               display: "flex",
