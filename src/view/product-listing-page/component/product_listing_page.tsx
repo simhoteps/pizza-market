@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Card from "view/card/component/card";
 import "../styles/product_listing_page_styles.scss";
 import { PizzaItem } from "model/model";
@@ -11,8 +11,21 @@ import ErrorPage from "view/error-page/components/error_page";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store/store";
 import { fetchPizza } from "store/reducer/pizza_slice";
+import { IconFilter } from "core/component/icon/icon";
 
 const ProductListingPage = () => {
+  const filterDivRef = useRef<HTMLDivElement>(null);
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (
+      filterDivRef.current &&
+      !filterDivRef.current.contains(event.target as Node)
+    ) {
+      setShowFilter(false);
+    }
+  };
+
   const size: Size = useWindowSize();
   const windowHeight = size?.height! - 220;
   const data = useSelector((state: RootState) => state.pizzaSlice);
@@ -20,6 +33,11 @@ const ProductListingPage = () => {
 
   useEffect(() => {
     dispatch(fetchPizza() as any);
+    document.addEventListener("click", handleOutsideClick, true);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick, true);
+    };
   }, []);
 
   return (
@@ -32,12 +50,43 @@ const ProductListingPage = () => {
             <div>
               {data.pizzas && (
                 <div className="product-listing-content">
-                  <Filter height={`${windowHeight + 60}px`} />
+                  <div className="filterDestop">
+                    <Filter height={`${windowHeight + 60}px`} />
+                  </div>
                   <div className="search-products-container">
                     <div className="search-result-title">
-                      <p className="listing-result">
-                        listing {data.pizzas.length} results
-                      </p>
+                      <div className="row-content">
+                        <div className="filterMobile">
+                          <button
+                            onClick={() => {
+                              setShowFilter(!showFilter);
+                            }}
+                            style={{
+                              backgroundColor: showFilter
+                                ? "#cac8c8"
+                                : "#f7f7f7",
+                            }}
+                            className="filterContentButton"
+                          >
+                            <IconFilter />
+                          </button>
+                          {showFilter && (
+                            <div
+                              ref={filterDivRef}
+                              style={{
+                                position: "absolute",
+                                left: "40px",
+                              }}
+                            >
+                              <Filter height={`${windowHeight + 60}px`} />
+                            </div>
+                          )}
+                        </div>
+
+                        <p className="listing-result">
+                          listing {data.pizzas.length} results
+                        </p>
+                      </div>
                       <SortComponent />
                     </div>
                     <div

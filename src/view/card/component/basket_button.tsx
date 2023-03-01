@@ -4,7 +4,6 @@ import "../styles/card_styles.scss";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store/store";
-import { basketSlice } from "store/action/basket_action";
 import { PizzaItem } from "model/model";
 
 const BasketButton = ({
@@ -14,11 +13,6 @@ const BasketButton = ({
   pizza: PizzaItem;
   isCard: string;
 }) => {
-  const { id, selectPizza } = useSelector(
-    (state: RootState) => state.basketSlice
-  );
-  const dispatch = useDispatch();
-
   const [size, setSize] = useState<number>(pizza.sizes[0]);
   return (
     <div
@@ -37,9 +31,8 @@ const BasketButton = ({
           <button
             className="card_button"
             onClick={() => {
-              dispatch(basketSlice.actions.increment());
               toast.success("add basket");
-              console.log("first");
+              console.log(toast.success("add basket"));
             }}
           >
             <IconShopAdd />

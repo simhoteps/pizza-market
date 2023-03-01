@@ -1,3 +1,4 @@
+import { IconFilter } from "core/component/icon/icon";
 import React from "react";
 import "./filter_styles.scss";
 
