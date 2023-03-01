@@ -1,4 +1,58 @@
 import React from "react";
+export const IconFilter = ({ fill }: { fill?: string | undefined }) => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 3.75H12"
+        stroke="#706D6E"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M3 9H7.5"
+        stroke="#706D6E"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M10.5 9H15"
+        stroke="#706D6E"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M6 14.25H15"
+        stroke="#706D6E"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M13.5 5.25C14.3284 5.25 15 4.57843 15 3.75C15 2.92157 14.3284 2.25 13.5 2.25C12.6716 2.25 12 2.92157 12 3.75C12 4.57843 12.6716 5.25 13.5 5.25Z"
+        stroke="#706D6E"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M9 10.5C9.82843 10.5 10.5 9.82843 10.5 9C10.5 8.17157 9.82843 7.5 9 7.5C8.17157 7.5 7.5 8.17157 7.5 9C7.5 9.82843 8.17157 10.5 9 10.5Z"
+        stroke="#706D6E"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M4.5 15.75C5.32843 15.75 6 15.0784 6 14.25C6 13.4216 5.32843 12.75 4.5 12.75C3.67157 12.75 3 13.4216 3 14.25C3 15.0784 3.67157 15.75 4.5 15.75Z"
+        stroke="#706D6E"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
 
 export const IconBack = ({ fill }: { fill?: string | undefined }) => {
   return (

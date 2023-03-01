@@ -6,9 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "store/store";
 
+let docTitle = document.title;
+window.addEventListener("blur", () => {
+  document.title = "Come Back ;(";
+});
+
+window.addEventListener("focus", () => {
+  document.title = docTitle;
+});
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
